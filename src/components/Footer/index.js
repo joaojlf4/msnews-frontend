@@ -15,7 +15,7 @@ export default function Footer() {
         <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="http://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
       </div> */} 
-      Copyright © 2020
+      <p>Copyright © 2020</p>
     </Container>
   );
 }
