@@ -16,7 +16,7 @@ export const Head = styled.div`
   width: 100%;
   flex-direction: column;
   h1{
-    font-size: 3.5em;
+    font-size: 3em;
   }
   p{
     font-size: 1.5em;
