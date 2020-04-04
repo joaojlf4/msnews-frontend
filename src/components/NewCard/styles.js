@@ -21,7 +21,7 @@ export const Container = styled.div`
 
   }
   h1{
-    font-size: 3em;
+    font-size: 2em;
     color: #333;
     width: 100%;
   }

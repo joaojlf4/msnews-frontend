@@ -45,4 +45,10 @@ export const MarkdownContainer = styled.div`
   margin-top: 25px;
   margin-bottom: 25px;
   line-height: 35px;
+  h1, h2, h3, h4, h5, h6{
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+  border-bottom: 2px solid #CCC;
+  padding-bottom: 25px;
 `;
