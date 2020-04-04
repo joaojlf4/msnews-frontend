@@ -1,0 +1,61 @@
+<Title>Escrever</Title>
+
+           
+            <input type="text" 
+              value={title} 
+              onChange={e => setTitle(e.target.value)}
+              placeholder="Título"/>
+            <textarea
+              value={eye} 
+              onChange={(e) => {setEye(e.target.value)}}
+              placeholder="Olho da notícia."></textarea>
+             <PictureUrlInput 
+              type="text"
+              value={pictureUrl}
+              onChange={e => setPictureUrl(e.target.value)}
+              placeholder="URL da imagem"/>
+            <div>
+              <Editor 
+                tools={Tools}
+                instanceRef={instance => setEditorInstance(instance)}
+                placeholder="Corpo" />
+            </div>
+            <section>
+              <a href="/">
+                <ActionButton action='decline'>Descartar</ActionButton>
+              </a>
+              {/*eslint-disable-next-line jsx-a11y/anchor-is-valid*/}
+              <a ref={publishButton} onClick={handleSaveData}>
+                <ActionButton 
+                  action='publish'>
+                    Publicar
+                </ActionButton>
+              </a>
+              
+            </section>
+
+            try{
+      const savedData = await editorInstance.save();
+      console.log(savedData)
+      console.log(savedData.blocks)
+      const response = await api.post('news/create', {
+          title,
+          eye,
+          pictureUrl,
+          blocks: JSON.stringify(savedData.blocks),
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + String(localStorage.getItem('accessToken')) || '123456'
+          }
+      });
+      console.log(response)
+
+      if(response.status === 200){
+        console.log(response.data)
+      }else{
+        console.log(response)
+      }
+    }catch(err){
+      console.log(err)
+    }
