@@ -43,7 +43,8 @@ export default function Main(){
                     pictureUrl={n.pictureUrl}
                     eye={n.eye}
                     link={n.slug}
-                    index={news.indexOf(n)}/> : <></>)
+                    index={news.indexOf(n)}
+                    state={n}/> : <></>)
               }
             </main>
             <aside>
@@ -55,7 +56,8 @@ export default function Main(){
                     pictureUrl={n.pictureUrl}
                     eye={n.eye}
                     link={n.slug}
-                    index={news.indexOf(n)}/> : <></>)}
+                    index={news.indexOf(n)}
+                    state={n}/> : <></>)}
             </aside>
           </MainContainer>
         </Container>
