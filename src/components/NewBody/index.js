@@ -16,6 +16,7 @@ export default function NewBody() {
   const [imgSrc, setImgSrc] = useState('');
   const [publishedAt, setPublishedAt] = useState(0);
   const [markdown, setMarkdown] = useState(''); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getData();
@@ -34,6 +35,7 @@ export default function NewBody() {
         setPublishedAt(msToDateString(data.publishedAt).getReadableDate());
         setMarkdown(data.markdown);
         document.title = data.title;
+        setIsLoading(false);
       }else{
         history.push('/nao-encontrado')
       }
@@ -44,15 +46,17 @@ export default function NewBody() {
 
   return (
     <Container>
-      <Head>
-        <h1>{title}</h1>
-        <DateText>{publishedAt}</DateText>
-        <p>{eye}</p>
-        <img src={imgSrc} alt={paramTitle}/>
-      </Head>
-      <MarkdownContainer>
-        <Markdown source={markdown}/>
-      </MarkdownContainer>
+      {
+        isLoading ? <h1>Carregando...</h1> : <><Head>
+          <h1>{title}</h1>
+          <DateText>{publishedAt}</DateText>
+          <p>{eye}</p>
+          <img src={imgSrc} alt={paramTitle}/>
+        </Head>
+        <MarkdownContainer>
+          <Markdown source={markdown}/>
+        </MarkdownContainer>
+      </>}
     </Container>
   );
 }

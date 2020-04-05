@@ -13,6 +13,7 @@ export default function Main(){
   const containerRef = useRef(null);
 
   const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     loadNews();
@@ -21,6 +22,7 @@ export default function Main(){
     try{
       const response = await api.get(`news?page=${actualPage}`);
       setNews(response.data.docs);
+      setIsLoading(false);
     }catch(err){
       alert('Ocorreu um erro.')
     }
@@ -33,6 +35,7 @@ export default function Main(){
           <MainContainer>
             <main>
               {
+                isLoading ? <h1>Carregando...</h1> : 
                 news.map(n => isMultipleOfSix(news.indexOf(n)) ? 
                   <NewCard 
                     key={n.id}
@@ -44,7 +47,8 @@ export default function Main(){
               }
             </main>
             <aside>
-              {news.map(n => !isMultipleOfSix(news.indexOf(n)) ? 
+              {isLoading ? <></> : 
+                news.map(n => !isMultipleOfSix(news.indexOf(n)) ? 
                   <AsideCard 
                     key={n.id}
                     title={n.title}
