@@ -8,7 +8,7 @@ export const Container = styled.div`
   min-height: 70vh;
   text-align: start;
   align-self: center;
-  margin-top: 100px;
+  margin-top: 150px;
   font-size: 16px;
   line-height: 36px;
   @media (max-width: 1000px){
