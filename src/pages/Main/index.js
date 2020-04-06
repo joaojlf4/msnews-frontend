@@ -38,26 +38,26 @@ export default function Main(){
                 isLoading ? <h1>Carregando...</h1> : 
                 news.map(n => isMultipleOfSix(news.indexOf(n)) ? 
                   <NewCard 
-                    key={n.id}
+                    key={n._id}
                     title={n.title}
                     pictureUrl={n.pictureUrl}
                     eye={n.eye}
                     link={n.slug}
                     index={news.indexOf(n)}
-                    state={n}/> : <></>)
+                    state={n}/> : false)
               }
             </main>
             <aside>
               {isLoading ? <></> : 
                 news.map(n => !isMultipleOfSix(news.indexOf(n)) ? 
                   <AsideCard 
-                    key={n.id}
+                    key={n._id}
                     title={n.title}
                     pictureUrl={n.pictureUrl}
                     eye={n.eye}
                     link={n.slug}
                     index={news.indexOf(n)}
-                    state={n}/> : <></>)}
+                    state={n}/> : false)}
             </aside>
           </MainContainer>
         </Container>
