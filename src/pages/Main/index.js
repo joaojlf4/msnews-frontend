@@ -21,6 +21,7 @@ export default function Main(){
   async function loadNews(){
     try{
       const response = await api.get(`news?page=${actualPage}`);
+      response.data.docs.reverse();
       setNews(response.data.docs);
       setIsLoading(false);
     }catch(err){
