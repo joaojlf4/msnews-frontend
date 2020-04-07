@@ -19,8 +19,12 @@ export default function NewBody() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const description = document.querySelector('head meta[name="description"]');
+    description.content = eye;
+    const image = document.querySelector('head meta[name="image"]');
+    image.content = imgSrc;
     getData();
-  }, [getData]);
+  }, [getData, eye, imgSrc]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   async function getData(){
