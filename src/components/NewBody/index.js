@@ -58,9 +58,7 @@ export default function NewBody() {
           <Helmet>
             <title>{title}</title>
             <meta name="description" content={eye} />
-            <meta property="og:description" content={eye} />
             <meta name="image" content={imgSrc} />
-            <meta name="og:image" content={imgSrc} />
           </Helmet>
           <Head>
             <h1>{title}</h1>

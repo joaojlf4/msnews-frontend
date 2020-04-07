@@ -35,7 +35,6 @@ export default function Main(){
       <Top></Top>
       <Helmet>
         <meta name="description" content="Notícias de Monte Sião e região." />
-        <meta property="og:description" content="Notícias de Monte Sião e região." />
       </Helmet>
         <Container ref={containerRef} > 
           <MainContainer>
