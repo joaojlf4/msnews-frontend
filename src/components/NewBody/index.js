@@ -4,6 +4,7 @@ import msToDateString from '../../utils/msToDateString';
 import api from '../../services/api';
 import { Container, Head, DateText, MarkdownContainer } from './styles';
 import Markdown from 'react-markdown';
+import { Helmet } from 'react-helmet';
 
 export default function NewBody() {
 
@@ -18,10 +19,6 @@ export default function NewBody() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const description = document.querySelector('head meta[name="description"]');
-    description.content = eye;
-    const image = document.querySelector('head meta[name="image"]');
-    image.href = imgSrc;
     getData();
   }, [getData, eye, imgSrc]);
 
@@ -59,6 +56,11 @@ export default function NewBody() {
     <Container>
       {
         isLoading ? <h1>Carregando...</h1> : <>
+        <Helmet>
+          <meta property="og:image" content={imgSrc}/>
+          <meta property="twitter:image" content={imgSrc}/>
+          <meta itemProp="image" content={imgSrc}/>
+        </Helmet>
           <Head>
             <h1>{title}</h1>
             <DateText>{publishedAt}</DateText>

@@ -7,6 +7,7 @@ import NewCard from '../../components/NewCard';
 import AsideCard from '../../components/AsideCard';
 import Footer from '../../components/Footer';
 import { Container, MainContainer } from './styles';
+import { Helmet } from 'react-helmet';
 
 export default function Main(){
   const actualPage = 1;
@@ -16,10 +17,6 @@ export default function Main(){
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const description = document.querySelector('head meta[name="description"]');
-    description.content = "Notícias de Monte Sião e região.";
-    const image = document.querySelector('head meta[name="image"]');
-    image.href = "/favicon-96x96.png";
     loadNews();
   }, []);
   async function loadNews(){
@@ -35,6 +32,9 @@ export default function Main(){
 
   return (
     <>
+      <Helmet>
+        
+      </Helmet>
       <Top></Top>
         <Container ref={containerRef} > 
           <MainContainer>
