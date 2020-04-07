@@ -19,8 +19,7 @@ export default function Main(){
     const description = document.querySelector('head meta[name="description"]');
     description.content = "Notícias de Monte Sião e região.";
     const image = document.querySelector('head meta[name="image"]');
-    image.content = "/favicon-96x96.png";
-    console.log(image.content)
+    image.href = "/favicon-96x96.png";
     loadNews();
   }, []);
   async function loadNews(){
