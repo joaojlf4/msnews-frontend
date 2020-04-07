@@ -70,6 +70,7 @@ export const DateText = styled.h4`
 `;
 
 export const MarkdownContainer = styled.div`
+  font-weight: 400;
   font-size: 1.5em;
   text-align: start;
   display: flex;
@@ -80,6 +81,13 @@ export const MarkdownContainer = styled.div`
   h1, h2, h3, h4, h5, h6{
     margin-top: 25px;
     margin-bottom: 15px;
+  }
+  p{
+    margin-top: 25px;
+  }
+  ul, ol{
+    margin-top: 15px;
+    margin-left: 50px;
   }
   border-bottom: 2px solid #CCC;
   padding-bottom: 25px;
