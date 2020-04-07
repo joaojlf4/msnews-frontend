@@ -4,7 +4,7 @@ import msToDateString from '../../utils/msToDateString';
 import api from '../../services/api';
 import { Container, Head, DateText, MarkdownContainer } from './styles';
 import Markdown from 'react-markdown';
-import DocumentMeta from 'react-document-meta';
+import { Helmet } from 'react-helmet';
 
 export default function NewBody() {
 
@@ -48,7 +48,6 @@ export default function NewBody() {
     setImgSrc(data.pictureUrl);
     setPublishedAt(msToDateString(data.publishedAt).getReadableDate());
     setMarkdown(data.markdown);
-    document.title = data.title;
     setIsLoading(false);
   }
 
@@ -56,8 +55,10 @@ export default function NewBody() {
     <Container>
       {
         isLoading ? <h1>Carregando...</h1> : <>
-          <DocumentMeta title="description" description={eye}>
-          </DocumentMeta>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={eye}/>
+          </Helmet>
           <Head>
             <h1>{title}</h1>
             <DateText>{publishedAt}</DateText>

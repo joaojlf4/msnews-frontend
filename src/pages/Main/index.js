@@ -7,6 +7,7 @@ import NewCard from '../../components/NewCard';
 import AsideCard from '../../components/AsideCard';
 import Footer from '../../components/Footer';
 import { Container, MainContainer } from './styles';
+import { Helmet } from 'react-helmet';
 
 export default function Main(){
   const actualPage = 1;
@@ -32,6 +33,9 @@ export default function Main(){
   return (
     <>
       <Top></Top>
+      <Helmet>
+        <meta name="description" content="Notícias de Monte Sião e região."/>
+      </Helmet>
         <Container ref={containerRef} > 
           <MainContainer>
             <main>
