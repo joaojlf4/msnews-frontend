@@ -4,6 +4,7 @@ import msToDateString from '../../utils/msToDateString';
 import api from '../../services/api';
 import { Container, Head, DateText, MarkdownContainer } from './styles';
 import Markdown from 'react-markdown';
+import DocumentMeta from 'react-document-meta';
 
 export default function NewBody() {
 
@@ -54,15 +55,18 @@ export default function NewBody() {
   return (
     <Container>
       {
-        isLoading ? <h1>Carregando...</h1> : <><Head>
-          <h1>{title}</h1>
-          <DateText>{publishedAt}</DateText>
-          <p>{eye}</p>
-          <img src={imgSrc} alt={paramTitle}/>
-        </Head>
-        <MarkdownContainer>
-          <Markdown source={markdown}/>
-        </MarkdownContainer>
+        isLoading ? <h1>Carregando...</h1> : <>
+          <DocumentMeta title="description" description={eye}>
+          </DocumentMeta>
+          <Head>
+            <h1>{title}</h1>
+            <DateText>{publishedAt}</DateText>
+            <p>{eye}</p>
+            <img src={imgSrc} alt={paramTitle}/>
+          </Head>
+          <MarkdownContainer>
+            <Markdown source={markdown}/>
+          </MarkdownContainer>
       </>}
     </Container>
   );
