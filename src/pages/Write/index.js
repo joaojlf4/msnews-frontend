@@ -12,7 +12,7 @@ import {
 import Footer from '../../components/Footer';
 import Top from '../../components/Top';
 
-import api from '../../services/api';
+// import api from '../../services/api';
 
 export default function Write(){
 
@@ -27,24 +27,24 @@ export default function Write(){
   // const [eyeFill, setEyeFill] = useState(false);
   // const [markdownFill, setMarkdownFill] = useState(false);
 
-  async function handleSave(){
-    try{
-      await api.post('news', {
-        title,
-        eye,
-        pictureUrl,
-        markdown
-      }, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem('accessToken')
-        }
-      });
-      history.push('/');
-    }catch(err){
-      alert('Ocorreu um erro.');
-      history.push('/');
-    }
-  }
+  // async function handleSave(){
+  //   try{
+  //     await api.post('news', {
+  //       title,
+  //       eye,
+  //       pictureUrl,
+  //       markdown
+  //     }, {
+  //       headers: {
+  //         Authorization: "Bearer " + localStorage.getItem('accessToken')
+  //       }
+  //     });
+  //     history.push('/');
+  //   }catch(err){
+  //     alert('Ocorreu um erro.');
+  //     history.push('/');
+  //   }
+  // }
 
   return (
     <>
@@ -79,8 +79,7 @@ export default function Write(){
               </Link>
                 <ActionButton 
                   action='publish'
-                  onClick={handleSave}>
-                    Publicar
+>                    Publicar
                 </ActionButton>
             </section>
           </EditorContainer>

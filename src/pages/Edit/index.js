@@ -12,7 +12,7 @@ import {
 import Footer from '../../components/Footer';
 import Top from '../../components/Top';
 
-import api from '../../services/api';
+// import api from '../../services/api';
 
 export default function Write(){
 
@@ -26,44 +26,44 @@ export default function Write(){
   const [markdown, setMarkdown] = useState('');
 
   useEffect(() =>{ 
-    async function loadNew(){
-      try{
-        const { data } = await api.get(`news?title=${params.title}`)
+    // async function loadNew(){
+    //   try{
+    //     const { data } = await api.get(`news?title=${params.title}`)
   
-        if(!data.title) return alert('Ocorreu um erro.')
+    //     if(!data.title) return alert('Ocorreu um erro.')
         
-        setId(data._id);
-        setTitle(data.title);
-        setEye(data.eye);
-        setPictureUrl(data.pictureUrl);
-        setMarkdown(data.markdown);
-      }catch(err){
-        history.push('/nao-encontrado')
-      }
-    }
-    loadNew();
+    //     setId(data._id);
+    //     setTitle(data.title);
+    //     setEye(data.eye);
+    //     setPictureUrl(data.pictureUrl);
+    //     setMarkdown(data.markdown);
+    //   }catch(err){
+    //     history.push('/nao-encontrado')
+    //   }
+    // }
+    // loadNew();
   }, [params.title, history]);
 
   
 
   async function handleSave(){
-    try{
-      await api.put('news/' + id, {
-        title,
-        eye,
-        pictureUrl,
-        markdown
-      }, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem('accessToken')
-        }
-      });
-      history.push('/');
-    }catch(err){
-      console.log(err);
-      alert('Ocorreu um erro.');
-      history.push('/');
-    }
+  //   try{
+  //     await api.put('news/' + id, {
+  //       title,
+  //       eye,
+  //       pictureUrl,
+  //       markdown
+  //     }, {
+  //       headers: {
+  //         Authorization: "Bearer " + localStorage.getItem('accessToken')
+  //       }
+  //     });
+  //     history.push('/');
+  //   }catch(err){
+  //     console.log(err);
+  //     alert('Ocorreu um erro.');
+  //     history.push('/');
+  //   }
   }
 
   return (

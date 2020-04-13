@@ -8,7 +8,7 @@ export default function MainNewCard({ title, pictureUrl, eye='', link='..', stat
     <Container>
       <Link to={{
         pathname: "news/" + link,
-        state
+        query: state
         }}>
         <img src={pictureUrl} alt="Saiba mais."/>
         <h1>{title}</h1>

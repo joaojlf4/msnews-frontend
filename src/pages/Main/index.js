@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import api from '../../services/api';
-import isMultipleOfSix from '../../utils/isMultipleOfSix';
+import React, { useState, useEffect } from 'react';
+// import isMultipleOfSix from '../../utils/isMultipleOfSix';
 
 import Top from '../../components/Top';
 import NewCard from '../../components/NewCard';
@@ -11,7 +10,6 @@ import { Helmet } from 'react-helmet';
 
 export default function Main(){
   const actualPage = 1;
-  const containerRef = useRef(null);
 
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,9 +19,9 @@ export default function Main(){
   }, []);
   async function loadNews(){
     try{
-      const response = await api.get(`news?page=${actualPage}`);
-      response.data.docs.reverse();
-      setNews(response.data.docs);
+      // const response = await api.get(`news?page=${actualPage}`);
+      // response.data.docs.reverse();
+      // setNews(response.data.docs);
       setIsLoading(false);
     }catch(err){
       alert('Ocorreu um erro.')
@@ -36,9 +34,9 @@ export default function Main(){
         
       </Helmet>
       <Top></Top>
-        <Container ref={containerRef} > 
+        <Container> 
           <MainContainer>
-            <main>
+            {/* <main>
               {
                 isLoading ? <h1>Carregando...</h1> : 
                 news.map(n => isMultipleOfSix(news.indexOf(n)) ? 
@@ -63,7 +61,7 @@ export default function Main(){
                     link={n.slug}
                     index={news.indexOf(n)}
                     state={n}/> : false)}
-            </aside>
+            </aside> */}
           </MainContainer>
         </Container>
       <Footer></Footer>

@@ -9,6 +9,8 @@
     "@editorjs/image": "^2.3.3",
     "@editorjs/paragraph": "^2.6.1",
     "@editorjs/quote": "^2.3.0",
+    "@mdi/js": "^5.0.45",
+    "@mdi/react": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -22,6 +24,7 @@
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-share": "^4.1.0",
     "styled-components": "^5.0.1",
     "time-span-format": "^1.0.1"
   },
