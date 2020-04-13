@@ -4,9 +4,8 @@ import { useEffect } from 'react';
 
 
 function App() {
-
   useEffect(() => {
-    window.open(process.env.NEXT_URL, '_self');
+    window.open(process.env.REACT_APP_NEXT_URL, '_self');
   }, [])
 
   return (
