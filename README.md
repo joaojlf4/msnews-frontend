@@ -2,4 +2,4 @@
 
 ![](demo.jpg)
 
-An website built with React, Styled Components, Markdown and React Router DOM for my local city newspapper.  
+An website built with React, Styled Components, Markdown and React Router DOM for my local city newspaper.  
